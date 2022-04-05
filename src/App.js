@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     const newFilteredRepos = repos.filter((repo) => {
-      return repo.name.toLocaleLowerCase().includes(searchField);
+      return repo.name.toLocaleLowerCase().includes(searchField) || repo.description.toLocaleLowerCase().includes(searchField) ;
     });
 
     setFilterRepos(newFilteredRepos);
