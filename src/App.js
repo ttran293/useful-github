@@ -1,31 +1,25 @@
 import { useState, useEffect } from "react";
-import people from "../src/data/people";
+import githubRepos from "../src/data/githubRepos";
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
 
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/ttran293/my-circle.git
-// git push -u origin main
 
 const App = () => {
   const [searchField, setSearchField] = useState("");
-  const [monsters, setMonsters] = useState([]);
-  const [filteredMonsters, setFilterMonsters] = useState(monsters);
+  const [repos, setRepos] = useState([]);
+  const [filteredRepos, setFilterRepos] = useState(repos);
 
 
-  useEffect(() => {setMonsters(people); }, []);
+  useEffect(() => {setRepos(githubRepos); }, []);
 
   useEffect(() => {
-    const newFilteredMonsters = monsters.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchField);
+    const newFilteredRepos = repos.filter((repo) => {
+      return repo.name.toLocaleLowerCase().includes(searchField);
     });
 
-    setFilterMonsters(newFilteredMonsters);
-  }, [monsters, searchField]);
+    setFilterRepos(newFilteredRepos);
+  }, [repos, searchField]);
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
@@ -34,14 +28,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="app-title">Monsters Rolodex</h1>
-
+      <h1 className="app-title">Useful GitHub Repositories</h1>
       <SearchBox
-        className="monsters-search-box"
+        className="repos-search-box"
         onChangeHandler={onSearchChange}
-        placeholder="search monsters"
+        placeholder="search repos"
       />
-      <CardList monsters={filteredMonsters} />
+      <CardList repos={filteredRepos} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import Card from "../card/card.component";
 import "./card-list.styles.css";
 
-const CardList = ({ monsters }) => (
+const CardList = ({ repos }) => (
   <div className="card-list">
-    {monsters.map((monster) => {
-      return <Card key={monster.id} monster={monster} />;
+    {repos.map((repo) => {
+      return <Card key={repo.id} repo={repo} />;
     })}
   </div>
 );

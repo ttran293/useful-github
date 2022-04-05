@@ -1,16 +1,25 @@
 import "./card.styles.css";
 
-const Card = ({ monster }) => {
-  const { id, name, email } = monster;
-
+const Card = ({ repo }) => {
+  const { name, full_name, owner, html_url, description, stargazers_count } = repo;
+  
+  
   return (
     <div className="card-container">
-      <img
-        alt={`monster ${name}`}
-        src={`https://github.com/ttran293.png?size=200`}
-      />
-      <h2>{name}</h2>
-      <p>{email}</p>
+      <div className="card-header">
+        <a href={html_url}>
+          <img className="avatar" alt={`repo ${name}`} src={owner.avatar_url} />
+        </a>
+        <p className="repo-name">{name}</p>
+        <p className="repo-author">Created by {full_name}</p>
+      </div>
+      <div className="content">
+        <p className="content-description">{description}</p>
+      </div>
+      <hr></hr>
+      <div className="card-footer">
+        <p className="">Stars: {stargazers_count}</p>
+      </div>
     </div>
   );
 };
