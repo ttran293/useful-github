@@ -35,6 +35,7 @@ const App = () => {
         placeholder="search repos"
       />
       <CardList repos={filteredRepos} />
+      <p>Source code: <a href="https://github.com/ttran293/useful-github">GitHub</a></p>
     </div>
   );
 };
