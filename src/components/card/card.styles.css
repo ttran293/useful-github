@@ -1,6 +1,6 @@
 .card-container {
     border-radius: 5px;
-    padding: 8px 8px 0;
+    padding: 8px;
     background: #fff;
     color: #555;
     -moz-osx-font-smoothing: grayscale;
@@ -39,10 +39,11 @@
 .avatar{
     width: 108px;
     height: 108px;
-    border: 1px solid rgb(233, 233, 233);
-    border-radius: 5px;
-  
+    border-radius: 50%;
 }
 .content-description{
+    text-align: center;
+}
+.card-footer{
     text-align: center;
 }

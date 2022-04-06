@@ -28,14 +28,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="app-title">Useful GitHub Repositories</h1>
+      <h1 className="app-title">useful GitHub repositories</h1>
       <SearchBox
         className="repos-search-box"
         onChangeHandler={onSearchChange}
-        placeholder="search repos"
       />
       <CardList repos={filteredRepos} />
-      <p>Source code: <a href="https://github.com/ttran293/useful-github">GitHub</a></p>
+      <p>
+        Source code:{" "}
+        <a href="https://github.com/ttran293/useful-github">GitHub</a>
+      </p>
     </div>
   );
 };

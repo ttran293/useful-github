@@ -1,16 +1,25 @@
 import "./card.styles.css";
 
 const Card = ({ repo }) => {
-  const { name, full_name, owner, html_url, description, stargazers_count } = repo;
+  const {
+    name,
+    full_name,
+    owner,
+    html_url,
+    description,
+    stargazers_count,
+    forks,
+  } = repo;
   
   
   return (
     <div className="card-container">
-      <div className="card-header">
-        <a href={html_url}>
+      <div>
+        <a href={html_url} className="card-header">
           <img className="avatar" alt={`repo ${name}`} src={owner.avatar_url} />
+          <p className="repo-name">{name}</p>
         </a>
-        <p className="repo-name">{name}</p>
+
         <p className="repo-author">Created by {full_name}</p>
       </div>
       <div className="content">
@@ -18,7 +27,12 @@ const Card = ({ repo }) => {
       </div>
       <hr></hr>
       <div className="card-footer">
-        <p className="">Stars: {stargazers_count}</p>
+        <span>
+          {"⭐"} {stargazers_count}
+        </span>{" "}
+        <span>
+          {"🍴"} {forks}
+        </span>
       </div>
     </div>
   );
