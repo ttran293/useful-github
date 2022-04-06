@@ -1,43 +1,79 @@
 import { useState, useEffect } from "react";
-import githubRepos from "../src/data/githubRepos";
-import CardList from "./components/card-list/card-list.component";
-import SearchBox from "./components/search-box/search-box.component";
-import "./App.css";
 
+import CardListRepo from "./components/card-list-repo/card-list-repo.component";
+import CardListProfile from "./components/card-list-profile/card-list-profile.component";
+import "./App.css";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
 const App = () => {
-  const [searchField, setSearchField] = useState("");
-  const [repos, setRepos] = useState([]);
-  const [filteredRepos, setFilterRepos] = useState(repos);
+  const [value, setTabValue] = useState(0);
 
-
-  useEffect(() => {setRepos(githubRepos); }, []);
-
-  useEffect(() => {
-    const newFilteredRepos = repos.filter((repo) => {
-      return repo.name.toLocaleLowerCase().includes(searchField) || repo.description.toLocaleLowerCase().includes(searchField) ;
-    });
-
-    setFilterRepos(newFilteredRepos);
-  }, [repos, searchField]);
-
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
+  const handleTab = (event, newValue) => {
+    setTabValue(newValue);
   };
 
   return (
     <div className="App">
-      <h1 className="app-title">useful GitHub repositories</h1>
-      <SearchBox
-        className="repos-search-box"
-        onChangeHandler={onSearchChange}
-      />
-      <CardList repos={filteredRepos} />
-      <p>
-        Source code:{" "}
-        <a href="https://github.com/ttran293/useful-github">GitHub</a>
-      </p>
+      <div className="main">
+        <Tabs
+          selectionFollowsFocus
+          value={value}
+          onChange={handleTab}
+          aria-label="basic tabs example"
+        >
+          <Tab label="repositories" {...a11yProps(0)} />
+          <Tab label="profiles" {...a11yProps(1)} />
+        </Tabs>
+
+        <TabPanel value={value} index={0}>
+          <CardListRepo />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <CardListProfile />
+        </TabPanel>
+
+        <p>
+          Source code:{" "}
+          <a href="https://github.com/ttran293/useful-github">GitHub</a>
+        </p>
+      </div>
     </div>
   );
 };

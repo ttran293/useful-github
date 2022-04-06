@@ -1,6 +1,6 @@
-import "./card.styles.css";
+import "./repo-card.styles.css";
 
-const Card = ({ repo }) => {
+const CardRepo = ({ repo }) => {
   const {
     name,
     full_name,
@@ -38,4 +38,4 @@ const Card = ({ repo }) => {
   );
 };
 
-export default Card;
+export default CardRepo;

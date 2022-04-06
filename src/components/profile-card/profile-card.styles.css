@@ -1,0 +1,70 @@
+.card-container {
+    border-radius: 5px;
+    padding: 8px;
+    background: #fff;
+    color: #555;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    min-width: 350px;
+    margin: 16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}
+
+.card-container:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-name {
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.profile-login {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: lighter;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bio {
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+}
+
+.avatar {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.content{
+    margin-top: 10px;
+}
+.content-description {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    
+    margin: 0;
+}
+
+.card-footer {
+    text-align: center;
+}

@@ -1,10 +1,13 @@
 .App {
+  display: block;
+  background-color: rgb(231, 231, 231);
+  min-height: 100vh;
+}
+
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(231, 231, 231);
+  justify-content: center;
 }
-
-.app-title{
- 
-}
+.app-title {}
