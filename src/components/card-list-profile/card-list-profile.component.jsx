@@ -8,23 +8,20 @@ function CardListProfile() {
   const [profiles, setProfiles] = useState([]);
   const [filteredProfiles, setFilterProfiles] = useState(profiles);
   const [searchField, setSearchField] = useState("");
+  let newFilteredProfiles;
+  console.log('render');
 
   useEffect(() => {
-    setProfiles(githubProfiles);
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setProfiles(data));
   }, []);
 
+ 
   useEffect(() => {
-    const newFilteredProfiles = profiles.filter((profile) => {
-      
-      return (
-        profile.login.toLocaleLowerCase().includes(searchField) ||
-        profile.name.toLocaleLowerCase().includes(searchField) ||
-        profile.bio.toLocaleLowerCase().includes(searchField)
-        //profile.company.toLocaleLowerCase().includes(searchField) 
-        // profile.location.toLocaleLowerCase().includes(searchField)
-      );
+      newFilteredProfiles = profiles.filter((profile) => {
+      return (profile.name.toLocaleLowerCase().includes(searchField));
     });
-
     setFilterProfiles(newFilteredProfiles);
   }, [profiles, searchField]);
 
