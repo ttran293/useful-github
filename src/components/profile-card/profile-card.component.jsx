@@ -5,23 +5,22 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import FolderCopyOutlinedIcon from "@mui/icons-material/FolderCopyOutlined";
 const CardProfile = ({ profile }) => {
   const {
+    login,
     name,
-    // html_url,
-    // name,
-    // avatar_url,
-    // bio,
-    // company,
-    // location,
-    // blog,
-    // public_repos,
-    // followers,
-    // following,
+    html_url,
+    avatar_url,
+    bio,
+    company,
+    location,
+    blog,
+    public_repos,
+    followers,
+    following,
   } = profile;
 
   return (
     <div className="card-container">
-      <p>{name}</p>
-      {/* <div>
+      <div>
         <a href={html_url} className="card-header">
           <img className="avatar" alt={`repo ${name}`} src={avatar_url} />
           <p className="profile-name">{name}</p>
@@ -30,19 +29,30 @@ const CardProfile = ({ profile }) => {
         <p className="bio">{bio}</p>
       </div>
       <div className="content">
-        <p className="content-description">
-          <WorkOutlinedIcon />
-          {"  "}
-          {company}
-          <LocationOnOutlinedIcon />
-          {"  "}
-          {location}
-        </p>
-        <p className="content-description">
-          <InsertLinkOutlinedIcon />
-          {"  "}
-          <a href={blog}>{blog}</a>
-        </p>
+        <div className="content-description">
+          {company != null && (
+            <div className="content-description">
+              <WorkOutlinedIcon />
+              <span>{company}</span>
+            </div>
+          )}
+        </div>
+        <div className="content-description">
+          {location != null && (
+            <div className="content-description">
+              <LocationOnOutlinedIcon />
+              <span>{location}</span>
+            </div>
+          )}
+        </div>
+        <div className="content-description">
+          {blog != "" && (
+            <div className="content-description">
+              <InsertLinkOutlinedIcon />
+              <a href={blog}>{blog}</a>
+            </div>
+          )}
+        </div>
       </div>
       <hr></hr>
       <div className="card-footer">
@@ -58,7 +68,7 @@ const CardProfile = ({ profile }) => {
           {" Followings: "}
           {following}
         </p>
-      </div> */}
+      </div>
     </div>
   );
 };

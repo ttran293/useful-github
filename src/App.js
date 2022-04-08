@@ -62,10 +62,10 @@ const App = () => {
           <Tab label="profiles" {...a11yProps(1)} />
         </Tabs>
 
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={0}>
           <CardListRepo />
         </TabPanel>
-        <TabPanel value={value} index={0}>
+        <TabPanel value={value} index={1}>
           <CardListProfile />
         </TabPanel>
 
