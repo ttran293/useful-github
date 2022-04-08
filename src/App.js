@@ -22,7 +22,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={"div"}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -62,10 +62,10 @@ const App = () => {
           <Tab label="profiles" {...a11yProps(1)} />
         </Tabs>
 
-        <TabPanel value={value} index={0}>
+        <TabPanel value={value} index={1}>
           <CardListRepo />
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={0}>
           <CardListProfile />
         </TabPanel>
 

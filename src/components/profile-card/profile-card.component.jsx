@@ -5,22 +5,23 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import FolderCopyOutlinedIcon from "@mui/icons-material/FolderCopyOutlined";
 const CardProfile = ({ profile }) => {
   const {
-    login,
-    html_url,
     name,
-    avatar_url,
-    bio,
-    company,
-    location,
-    blog,
-    public_repos,
-    followers,
-    following,
+    // html_url,
+    // name,
+    // avatar_url,
+    // bio,
+    // company,
+    // location,
+    // blog,
+    // public_repos,
+    // followers,
+    // following,
   } = profile;
 
   return (
     <div className="card-container">
-      <div>
+      <p>{name}</p>
+      {/* <div>
         <a href={html_url} className="card-header">
           <img className="avatar" alt={`repo ${name}`} src={avatar_url} />
           <p className="profile-name">{name}</p>
@@ -57,7 +58,7 @@ const CardProfile = ({ profile }) => {
           {" Followings: "}
           {following}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
